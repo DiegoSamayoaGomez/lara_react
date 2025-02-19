@@ -40,32 +40,32 @@ const Register = () => {
             <h2 className="text-center mb-4">Registro</h2>
             <form onSubmit={handleRegister}>
               <div className="mb-3">
-                <label className="form-label">Nombre:</label>
                 <input
                   type="text"
                   className="form-control"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  placeholder="Nombre"
                   required
                 />
               </div>
               <div className="mb-3">
-                <label className="form-label">Email:</label>
                 <input
                   type="email"
                   className="form-control"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Email"
                   required
                 />
               </div>
               <div className="mb-3">
-                <label className="form-label">Contraseña:</label>
                 <input
                   type="password"
                   className="form-control"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Contraseña"
                   required
                 />
               </div>
