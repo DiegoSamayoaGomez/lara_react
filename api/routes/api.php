@@ -18,7 +18,9 @@ Route::controller(UserController::class)->group(function () {
     Route::get('/user/{id}', 'show');
     Route::put('/user/{id}', 'update');
     Route::delete('/user/{id}', 'destroy');
+    Route::get('/user/email/{email}', 'showByEmail');
 });
+
 
 Route::controller(TaskController::class)->group(function () {
     Route::get('/user/{userId}/tasks', 'index');

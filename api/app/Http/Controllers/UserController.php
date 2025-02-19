@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Task;
 use App\Models\User;
+
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -67,5 +69,24 @@ class UserController extends Controller
         //Eliminar usuario
         $user = User::destroy($id);
         return $user;
+    }
+
+    public function showByEmail($email)
+    {
+        // Verifica si el usuario existe
+        $user = User::where('email', $email)->first();
+
+        if (!$user) {
+            return response()->json(['message' => 'Usuario no encontrado'], 404);
+        }
+
+        // Obtener las tareas asociadas al usuario
+        $tasks = Task::where('id_user', $user->id)->get();
+
+        // Retorno en formato JSON correctamente estructurado
+        return response()->json([
+            'user' => $user,
+            'tasks' => $tasks,
+        ]);
     }
 }
